@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title></title>    
+        <script src="vue-2.4.0.js"></script>
+
+        <style>
+            .inner{
+                height: 150px;
+                background-color: darkcyan;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="app">
+            <div class="inner" @click="div1handler">
+                <input type="button" value="戳它" v-on:click.stop="btnhandler"/>
+            </div>
+
+        </div>
+
+        <script>
+            var vm=new Vue({
+                el:'#app',
+                data:{
+
+                },
+                methods:{
+                    div1handler(){
+                        alert(1);
+
+                    },
+                    btnhandler(){
+
+                        alert(2);
+                    }
+                }
+
+
+            });
+        
+        </script>
+    </body>
+
+</html>
