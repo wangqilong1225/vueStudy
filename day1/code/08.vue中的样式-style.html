@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title></title>    
+        <style>
+            .red{
+                color: red;
+            }
+
+            .thin{
+                font-weight:200;
+            }
+
+            .italic{
+                font-style: initial;
+            }
+
+            .active{
+                letter-spacing: 0.5em;
+            }
+        </style>
+        <script src="vue-2.4.0.js"></script>
+    </head>
+
+    <body>
+        <div id="app">
+           <h1 :style="[styleObj1,styleObj2]">这是一个H1</h1>
+         
+        </div>
+
+        
+        <script>
+            var vm=new Vue({
+                el:'#app',
+                data:{
+                   styleObj1:{color:'red'},
+                   styleObj2:{'font-weight':200}
+                },
+                methods:{
+                  
+                }
+            });
+        </script>
+    </body>
+
+</html>

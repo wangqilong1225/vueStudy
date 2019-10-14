@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title></title>    
+        <style>
+          
+        </style>
+        <script src="vue-2.4.0.js"></script>
+    </head>
+
+    <body>
+        <div id="app">
+           <p v-for="(item,i) in list">{{i}}---{{item}}</p>
+           <p v-for="user in list2">{{user.id}}---{{user.name}}</p>
+        </div>
+
+        
+        <script>
+            var vm=new Vue({
+                el:'#app',
+                data:{
+                   list:[1,2,3,4,5,6],
+                   list2:[
+                        {id:1,name:'zs'},
+                        {id:2,name:'ls'},
+                        {id:3,name:'ww'},
+                        {id:4,name:'lq'}
+                   ]
+                },
+                methods:{
+                  
+                }
+            });
+        </script>
+    </body>
+
+</html>
