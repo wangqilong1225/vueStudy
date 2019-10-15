@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title></title>    
+        <style>
+          
+        </style>
+        <script src="vue-2.4.0.js"></script>
+    </head>
+
+    <body>
+        <div id="app">
+            <div>
+                <label>Id:
+                    <input type="text" v-model="id">
+                </label>
+
+                <label>name:
+                        <input type="text" v-model="name">
+                </label>
+
+                
+                <input type="submit"  @click="add">
+               
+            </div>
+
+
+           <p v-for="item in list">{{item}}</p>
+        </div>
+
+        
+        <script>
+            var vm=new Vue({
+                el:'#app',
+                data:{    
+                    id:'',
+                    name:'',              
+                    list:[
+                            {id:1,name:'zs'},
+                            {id:2,name:'ls'},
+                            {id:3,name:'ww'},
+                            {id:4,name:'lq'}
+                    ]
+                },
+                methods:{
+                    add(){
+                        this.list.push({id:this.id,name:this.name})
+                    }
+                }
+            });
+        </script>
+    </body>
+
+</html>
