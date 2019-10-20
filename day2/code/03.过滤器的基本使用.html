@@ -1,0 +1,34 @@
+<html>
+<header>
+    <title></title>
+    <script src="vue-2.4.0.js"></script>
+    <link rel="stylesheet" href="bootstrap-3.3.7.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</header>
+<body>
+    <div id="app">
+        <p>{{msg|msgFormat('疯狂','你','不是')}}</p>
+
+    </div>
+
+    <script>
+        Vue.filter('msgFormat',function(msg,arg,arg2){
+            return msg.replace(/单纯/g,arg).replace(/我/g,arg2)
+        });
+
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                msg:'曾经，我也是一个单纯的少年，单纯的我，傻傻的问，谁是世界上最单纯的男人'
+            },
+            methods:{},
+            filters:{
+                
+                msgFormat:function(msg,arg,arg2){
+                    return msg.replace(/单纯/g,arg).replace(/我/g,arg2);
+                }
+            }
+        });      
+    </script>
+</body>
+</html>
