@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <title></title>
+        <script src="vue-2.4.0.js"></script>
+        <link rel="stylesheet" href="bootstrap-3.3.7.css" />
+    </head>
+
+    <boby>
+        <div id="app">
+            <div class="panpel panpel-primary">
+                <div class="panpel-heading">
+                    <h3 class="panel-title">添加品牌</h3>
+                </div>
+                <div class="panpel-boby form-inline">
+                    <label>
+                        Id:
+                        <input type="text" class="form-control" v-model="Id">
+                    </label>
+                    <label>
+                        Name:
+                        <input type="text" class="form-control" v-model="Name">
+                    </label>
+                    <label>                       
+                        <input type="button" value="Add" class="btn btn-primay" @click="add">
+                    </label>
+                </div>
+            </div>
+
+            <table class="table table-bordered table-hover table-striped">
+                <thread>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Ctime</th>
+                        <th>Operation</th>
+                    </tr>
+                </thread>
+                <tboby>
+                    <tr v-for="item in list" :key ="item.id">
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.ctime}}</td>
+                        <td>
+                            <a href="" @click.prevent="del(item.id)">Delete</a>
+                        </td>
+                    </tr>
+
+                </tboby>
+
+            </table>
+
+        </div>
+
+
+    <script>
+        var vm=new Vue({
+            el: "#app",
+            data:{
+                list:[
+                    {id:1,name:"奔驰",ctime:new Date()},
+                    {id:2,name:"宝马",ctime:new Date()},
+                ],
+                Id:"",
+                Name:""
+            },
+            methods:{
+                add(){
+                    console.log(111);
+                    var car={id:this.Id,name:this.Name,ctime:new Date()};
+                    this.list.push(car);
+                },
+                del(id)
+                {
+                    // this.list.some((item,i)=>{
+                    //     if(item.id==id){
+                    //         this.list.splice(i,1);
+                    //         return true;
+                    //     }
+                    // });
+                   var index=this.list.findIndex(item=>{
+                        if(item.id==id){
+                            return true;
+                        }
+                   });
+                   this.list.splice(index,1);
+
+                }
+            }
+        });
+
+
+    </script>
+
+</boby>
+</html>
