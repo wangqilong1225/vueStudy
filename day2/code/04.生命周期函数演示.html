@@ -1,0 +1,48 @@
+<html>
+    <header>
+            <script src="vue-2.4.0.js"></script>
+            <link rel="stylesheet" href="bootstrap-3.3.7.css" />
+    </header>
+    <body>
+        <div id="app">
+            <h3 id="h3">{{ msg }}</h3>
+        </div>
+
+        <script>
+            var vm=new Vue({
+                el:'#app',
+                data:{
+                    msg:'ok'
+                },
+                methods:{
+                    show(){
+                        console.log('执行了show方法');
+                    }
+                },
+                beforeCreate(){  //这是我们遇到的第一个生命周期函数，表示示例完全被创建出来之前，会执行它
+                    //console.log(this.msg);   undefined
+                    //this.show();      undefin is not defined
+                    // 注意: 在beforeCreate生命周期执行的时候，data和method中的数据都还没有初始化
+                },
+                created(){      //这是遇到的第二个生命周期函数
+                    // 在create中，data和methods都已经被初始化好了
+                    console.log(this.msg);
+                    this.show();
+                },
+                beforeMount(){  //这是遇到的第三个生命周期函数，表示模版已经在内存中编辑完成了，但是尚未把模版渲染到页面中
+                    console.log(document.getElementById("h3").innerText);      //{{ msg }}
+                    //在beforeMount执行的时候，页面中的元素，还没有真正被替换过来，只是之前写的一些模版字符串
+                },
+                mounted(){      //这是遇到的第四个生命周期函数，表示内存中的模版已经真实的挂载在页面中，用户已经可以看到渲染好的页面了
+                    console.log(document.getElementById("h3").innerText);   
+
+                },
+
+
+            });
+        
+        </script>
+    </body>
+
+
+</html>
